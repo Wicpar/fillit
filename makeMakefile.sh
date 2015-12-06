@@ -6,7 +6,7 @@
 #    By: fnieto <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/04 01:19:47 by fnieto            #+#    #+#              #
-#    Updated: 2015/12/06 17:25:34 by fnieto           ###   ########.fr        #
+#    Updated: 2015/12/06 19:41:59 by fnieto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,13 @@ RM=rm -f
 
 SRC=" > $file
 
-ls ft_*.c | tr "\n" " "| rev | cut -c 2- | rev >> $file
+ls *.c | tr "\n" " "| rev | cut -c 2- | rev >> $file
 
 echo "
+LIB=libft.a
+
 \$(NAME): $name.h
-		\$(CC) \$(CFLAGS) -o \$(NAME) \$(SRC)
+		\$(CC) \$(CFLAGS) -o \$(NAME) \$(SRC) \$(LIB)
 
 all: \$(NAME)
 
