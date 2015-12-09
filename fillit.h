@@ -15,12 +15,22 @@
 # include <string.h>
 # include "libft.h"
 
+typedef	struct		s_dim
+{
+	size_t	x;
+	size_t	y;
+	size_t	w;
+	size_t	h;
+}					t_dim;
+
 typedef	struct		s_model
 {
-	
+	char	**map;
+	t_dim	dim;
 }					t_model;
 
 int		main(int argc, char **argv);
 void	puterr(int colored);
+t_list	*loadfile(char	*str);
 
 #endif
