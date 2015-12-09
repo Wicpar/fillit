@@ -31,7 +31,6 @@ typedef	struct		s_model
 
 int		main(int argc, char **argv);
 void	puterr(int colored);
-t_list	*loadfile(char	*str);
-char	**model_cpy(char **src);
+t_model	*model_cpy(t_model *src);
 
 #endif

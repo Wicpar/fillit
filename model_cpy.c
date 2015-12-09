@@ -6,15 +6,17 @@
 /*   By: lfargeas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 22:08:37 by lfargeas          #+#    #+#             */
-/*   Updated: 2015/12/09 22:48:31 by lfargeas         ###   ########.fr       */
+/*   Updated: 2015/12/09 23:23:58 by lfargeas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fillit.h"
+
 t_model	*model_cpy(t_model *src)
 {
-	t_dim *rv;
-	int i;
-	int i2;
+	t_model *rv;
+	unsigned int i;
+	unsigned int i2;
 
 	i = 0;
 	i2 = 0;
@@ -24,6 +26,7 @@ t_model	*model_cpy(t_model *src)
 	while (i < rv->dim.h)
 	{
 		rv->map[i] = ft_strnew(rv->dim.w);
+		i2 = 0;
 		while (i2 < rv->dim.w)
 		{
 			rv->map[i][i2] = src->map[i][i2];
