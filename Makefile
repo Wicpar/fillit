@@ -18,10 +18,12 @@ CFLAGS=-Wall -Wextra -Werror
 
 RM=rm -f
 
-SRC=a.c
+SRC=a.c error.c
+
+LIB=libft.a
 
 $(NAME): fillit.h
-		$(CC) $(CFLAGS) -o $(NAME) $(SRC)
+		$(CC) $(CFLAGS) -o $(NAME) $(SRC) $(LIB)
 
 all: $(NAME)
 

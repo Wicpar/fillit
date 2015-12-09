@@ -6,7 +6,7 @@
 #    By: fnieto <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 23:40:14 by fnieto            #+#    #+#              #
-#    Updated: 2015/12/06 21:10:19 by fnieto           ###   ########.fr        #
+#    Updated: 2015/12/09 19:55:33 by fnieto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ file="fillit.h"
 echo "/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                            :+:      :+:    :+:   */
+/*   fillit.h                                            :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieto <fnieto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -27,9 +27,12 @@ echo "/* ***********************************************************************
 #ifndef FILLIT_H
 # define FILLIT_H
 # include <string.h>
-# include <stdlib.h>
-# include <fcntl.h>
 # include \"libft.h\"
+
+typedef	struct		s_model
+{
+	
+}					t_model;
 " > $file
 
 cat *.c | grep "^[a-z]" | sed -e 's/$/;/' >> $file

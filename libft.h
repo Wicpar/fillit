@@ -6,7 +6,7 @@
 /*   By: fnieto <fnieto@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 14:16:24 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/05 22:19:39 by fnieto           ###   ########.fr       */
+/*   Updated: 2015/12/09 19:00:44 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,5 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strtrim(char const *s);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
-size_t			ft_uirandom(size_t min, size_t max, size_t seed);
 
 #endif

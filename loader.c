@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                            :+:      :+:    :+:  */
+/*   loader.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieto <fnieto@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 14:16:24 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/03 23:06:17 by fnieto           ###   ########.fr       */
+/*   Created: 2015/12/09 20:37:02 by fnieto            #+#    #+#             */
+/*   Updated: 2015/12/09 20:57:04 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
-# include <string.h>
-# include "libft.h"
+#include "fillit.h"
+#include  <fcntl.h>
 
-typedef	struct		s_model
+t_list	loadfile(char	*str)
 {
-	
-}					t_model;
+	int		fd;
 
-int		main(int argc, char **argv);
-void	puterr(int colored);
-
-#endif
+	fd = open(str, O_RDONLY, S_IREAD);
+}

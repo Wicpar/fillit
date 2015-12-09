@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                            :+:      :+:    :+:  */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieto <fnieto@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 14:16:24 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/03 23:06:17 by fnieto           ###   ########.fr       */
+/*   Created: 2015/12/09 20:08:49 by fnieto            #+#    #+#             */
+/*   Updated: 2015/12/09 20:23:48 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
-# include <string.h>
-# include "libft.h"
+#include "fillit.h"
+#include <stdlib.h>
 
-typedef	struct		s_model
+void	puterr(int colored)
 {
-	
-}					t_model;
-
-int		main(int argc, char **argv);
-void	puterr(int colored);
-
-#endif
+	if (colored)
+		ft_putstr_fd("\033[31m", 0);
+	ft_putstr("error\n");
+	if (colored)
+		ft_putstr_fd("\033[0m", 0);
+	exit(1);
+}
