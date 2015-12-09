@@ -6,16 +6,17 @@
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 20:37:02 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/09 21:02:20 by fnieto           ###   ########.fr       */
+/*   Updated: 2015/12/09 21:03:18 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include  <fcntl.h>
 
-t_list	loadfile(char	*str)
+t_list	*loadfile(char	*str)
 {
 	int		fd;
 
 	fd = open(str, O_RDONLY, S_IREAD);
+
 }

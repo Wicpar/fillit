@@ -6,7 +6,7 @@
 #    By: fnieto <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 23:40:14 by fnieto            #+#    #+#              #
-#    Updated: 2015/12/09 19:55:33 by fnieto           ###   ########.fr        #
+#    Updated: 2015/12/09 21:03:47 by fnieto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,18 @@ echo "/* ***********************************************************************
 # include <string.h>
 # include \"libft.h\"
 
+typedef	struct		s_dim
+{
+	size_t	x;
+	size_t	y;
+	size_t	w;
+	size_t	h;
+}					t_dim;
+
 typedef	struct		s_model
 {
-	
+	char	**map;
+	t_dim	dim;
 }					t_model;
 " > $file
 
