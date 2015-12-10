@@ -6,11 +6,16 @@
 /*   By: lfargeas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 00:58:51 by lfargeas          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2015/12/10 03:21:47 by lfargeas         ###   ########.fr       */
+=======
+/*   Updated: 2015/12/10 02:54:48 by fnieto           ###   ########.fr       */
+>>>>>>> origin/master
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+<<<<<<< HEAD
 
 //int	is_tetri_valid(t_model *value)
 //{
@@ -48,3 +53,5 @@ void	trim_tetri()
 		puterr(1);
 	value = (t_model*)elem->content;
 */}
+=======
+>>>>>>> origin/master

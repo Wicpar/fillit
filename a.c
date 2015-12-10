@@ -6,7 +6,11 @@
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/06 17:27:26 by fnieto            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2015/12/10 03:18:43 by lfargeas         ###   ########.fr       */
+=======
+/*   Updated: 2015/12/10 02:51:07 by fnieto           ###   ########.fr       */
+>>>>>>> origin/master
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +18,7 @@
 
 int		main(int argc, char **argv)
 {
+<<<<<<< HEAD
 	t_model *mdl;
  	mdl = (t_model*)ft_memalloc(sizeof(t_model));
 	mdl->dim.h = 4;
@@ -36,4 +41,9 @@ int		main(int argc, char **argv)
 	
   if (argc != 2 || argv == 0)
     puterr(1);
+=======
+	if (argc != 2 || argv == 0)
+		puterr(1);
+	loadfile(argv[1]);
+>>>>>>> origin/master
 }
