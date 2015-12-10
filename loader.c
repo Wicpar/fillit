@@ -6,7 +6,7 @@
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 20:37:02 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/10 03:28:17 by fnieto           ###   ########.fr       */
+/*   Updated: 2015/12/10 04:15:52 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_list	*loadfile(char	*str)
 
 	ft_putstr("done loading\n");
 
-	while((last = read(fd, buf, 20)) >= 20)
+	while((last = read(fd, buf, 21)) >= 20)
 	{
 		ft_putendl("starting");
 
@@ -46,11 +46,12 @@ t_list	*loadfile(char	*str)
 
 		ft_putendl("added model");
 		ft_putendl(buf);
+		if (last != 20)
+			ft_strclr(buf);
 	}
-
 	ft_putnbr(last);
 
-	if (close(fd) || last || !lst)
+	if (ft_strlen(buf) != 20 || close(fd) || last || !lst)
 		puterr(1);
 	ft_memdel((void**)&buf);
 	return (lst);
