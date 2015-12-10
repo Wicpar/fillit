@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   a.c                                                :+:      :+:    :+:   */
+/*   ft_lstpush.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lfargeas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/06 17:27:26 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/09 23:24:40 by lfargeas         ###   ########.fr       */
+/*   Created: 2015/12/09 23:39:17 by lfargeas          #+#    #+#             */
+/*   Updated: 2015/12/10 00:05:55 by lfargeas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void	ft_lstpush(t_list **alst, t_list *new)
 {
-  
-  if (argc != 2 || argv == 0)
-    puterr(1);
+	t_list *tmp;
+
+	if (alst == NULL)
+	{
+		*alst = new;
+		return ;
+	}
+	tmp = *alst;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+	}
+	tmp->next = new;
+	return ;
 }
