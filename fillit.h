@@ -31,12 +31,10 @@ typedef	struct		s_model
 
 int		main(int argc, char **argv);
 void	puterr(int colored);
-<<<<<<< HEAD
+void	ft_lstpush(t_list **alst, t_list *new);
 t_list	*loadfile(char	*str);
 t_model	*check_model(t_model *model);
-=======
-void	ft_lstpush(t_list **alst, t_list *new);
 t_model	*model_cpy(t_model *src);
->>>>>>> origin/lionel
+t_model	*modelnew(char **map);
 
 #endif

@@ -6,12 +6,13 @@
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 20:37:02 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/10 00:06:13 by fnieto           ###   ########.fr       */
+/*   Updated: 2015/12/10 03:28:17 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include  <fcntl.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 t_list	*loadfile(char	*str)
 {
@@ -19,18 +20,39 @@ t_list	*loadfile(char	*str)
 	t_list	*lst;
 	char	*buf;
 	t_model	*tmp;
+	int		last;
 
-	fd = open(str, O_RDONLY, S_IREAD);
+	fd = open(str, O_RDONLY);
 	lst = 0;
 	buf = ft_strnew(21);
 	if (fd < 0)
 		puterr(1);
-	while(read(fd, buf, 21) == 21)
+
+	ft_putstr("done loading\n");
+
+	while((last = read(fd, buf, 20)) >= 20)
 	{
-		tmp = (t_model*)ft_memalloc(sizeof(t_model));
-		tmp->map = ft_strsplit(buf, '\n');
+		ft_putendl("starting");
+
+		tmp = modelnew(ft_strsplit(buf, '\n'));
+
+		ft_putendl("done malloc");
+
 		tmp = check_model(tmp);
+
+		ft_putendl("checked model");
+
+		ft_lstpush(&lst, ft_lstnew(tmp, 1));
+
+		ft_putendl("added model");
+		ft_putendl(buf);
 	}
+
+	ft_putnbr(last);
+
+	if (close(fd) || last || !lst)
+		puterr(1);
+	ft_memdel((void**)&buf);
 	return (lst);
 }
 

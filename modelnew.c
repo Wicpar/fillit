@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   a.c                                                :+:      :+:    :+:   */
+/*   modelnew.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/06 17:27:26 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/10 02:51:07 by fnieto           ###   ########.fr       */
+/*   Created: 2015/12/10 03:15:40 by fnieto            #+#    #+#             */
+/*   Updated: 2015/12/10 03:21:08 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		main(int argc, char **argv)
+t_model	*modelnew(char **map)
 {
-	if (argc != 2 || argv == 0)
-		puterr(1);
-	loadfile(argv[1]);
+	t_model *new;
+
+	new = (t_model*)ft_memalloc(sizeof(t_model));
+	if (new)
+	{
+		new->map = map;
+		new->dim.x = 0;
+		new->dim.y = 0;
+		new->dim.w = 0;
+		new->dim.h = 0;
+	}
+	return (new);
 }

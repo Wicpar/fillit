@@ -6,7 +6,7 @@
 /*   By: lfargeas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 23:39:17 by lfargeas          #+#    #+#             */
-/*   Updated: 2015/12/10 00:05:55 by lfargeas         ###   ########.fr       */
+/*   Updated: 2015/12/10 03:27:34 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,13 @@ void	ft_lstpush(t_list **alst, t_list *new)
 {
 	t_list *tmp;
 
-	if (alst == NULL)
+	if (!*alst)
 	{
 		*alst = new;
 		return ;
 	}
 	tmp = *alst;
-	while (tmp->next != NULL)
-	{
+	while (tmp->next)
 		tmp = tmp->next;
-	}
 	tmp->next = new;
-	return ;
 }
