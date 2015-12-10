@@ -26,15 +26,21 @@ typedef	struct		s_dim
 typedef	struct		s_model
 {
 	char	**map;
-	t_dim	dim;
+	t_dim	*dim;
 }					t_model;
 
 int		main(int argc, char **argv);
+t_dim	*dimnew(size_t x, size_t y, size_t w, size_t h);
 void	puterr(int colored);
 void	ft_lstpush(t_list **alst, t_list *new);
+t_dim return_dim_zero();
+t_dim maxdim(t_list *lst);
 t_list	*loadfile(char	*str);
 t_model	*check_model(t_model *model);
-t_model	*model_cpy(t_model *src);
+void	check_pcs(t_dim *pcs, t_model *model, size_t x, size_t y);
+void	aabb_update(t_dim *aabb, size_t x, size_t y);
+void	model_trim(t_model *model);
+t_list	*modelbufcpy(t_list *origin);
 t_model	*modelnew(char **map);
 
 #endif

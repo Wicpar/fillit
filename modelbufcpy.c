@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   modelnew.c                                         :+:      :+:    :+:   */
+/*   modelbufcpy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 03:15:40 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/10 23:45:52 by fnieto           ###   ########.fr       */
+/*   Created: 2015/12/10 22:15:35 by fnieto            #+#    #+#             */
+/*   Updated: 2015/12/10 22:25:03 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_model	*modelnew(char **map)
+static t_list	*cpy(t_list *origin)
 {
-	t_model *new;
+	return (ft_lstnew(origin->content, origin->content_size));
+}
 
-	new = (t_model*)ft_memalloc(sizeof(t_model));
-	if (new)
-	{
-		new->map = map;
-		new->dim = dimnew(1000, 1000, 1000, 1000);
-	}
-	return (new->dim ? new : 0);
+t_list	*modelbufcpy(t_list *origin)
+{
+	return (ft_lstmap(origin, &cpy));
 }

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   modelnew.c                                         :+:      :+:    :+:   */
+/*   dimnew.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 03:15:40 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/10 23:45:52 by fnieto           ###   ########.fr       */
+/*   Created: 2015/12/10 23:32:14 by fnieto            #+#    #+#             */
+/*   Updated: 2015/12/10 23:43:32 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_model	*modelnew(char **map)
+t_dim	*dimnew(size_t x, size_t y, size_t w, size_t h)
 {
-	t_model *new;
+	t_dim *new;
 
-	new = (t_model*)ft_memalloc(sizeof(t_model));
+	new = (t_dim*)ft_memalloc(sizeof(t_dim));
 	if (new)
 	{
-		new->map = map;
-		new->dim = dimnew(1000, 1000, 1000, 1000);
+		new->x = x;
+		new->y = y;
+		new->w = w;
+		new->h = h;
 	}
-	return (new->dim ? new : 0);
+	return (new);
 }

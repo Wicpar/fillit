@@ -6,7 +6,7 @@
 #    By: fnieto <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 23:40:14 by fnieto            #+#    #+#              #
-#    Updated: 2015/12/10 01:53:37 by lfargeas         ###   ########.fr        #
+#    Updated: 2015/12/10 23:30:21 by fnieto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,11 +40,11 @@ typedef	struct		s_dim
 typedef	struct		s_model
 {
 	char	**map;
-	t_dim	dim;
+	t_dim	*dim;
 }					t_model;
 " > $file
 
-cat *.c | grep "^[a-z]" | sed -e 's/$/;/' >> $file
+cat *.c | grep "^[a-z]" | grep -v static | sed -e 's/$/;/' >> $file
 
 echo "
 #endif" >> $file

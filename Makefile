@@ -18,7 +18,7 @@ CFLAGS=-Wall -Wextra -Werror
 
 RM=rm -f
 
-SRC=a.c cpy_lstmodel.c error.c ft_lstpush.c loader.c model_cpy.c modelnew.c trim_tetri.c
+SRC=a.c dimnew.c error.c ft_lstpush.c initializer.c loader.c modelbufcpy.c modelnew.c
 
 LIB=libft.a
 
