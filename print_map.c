@@ -6,7 +6,7 @@
 /*   By: lfargeas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 23:53:55 by lfargeas          #+#    #+#             */
-/*   Updated: 2015/12/12 00:30:48 by lfargeas         ###   ########.fr       */
+/*   Updated: 2015/12/12 00:42:45 by lfargeas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@
 void print_map(t_map *to_print)
 {
 	t_list *tmp;
+	int i;
 
-	tmp = to_print->elems
-	to_print->map = ((char**)ft_memalloc(sizeof(char*)));
-	
-	
+	i = 0;
+	tmp = to_print->elems;
+	to_print->map = ((char**)ft_memalloc(sizeof(char*) + 1));
+	while (i < to_print->dim->h)
+	{
+		to_print->map[i] = ft_strnew(to_print->dim->w);
+		i++;
+	}
 	
 	
 	

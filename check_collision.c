@@ -6,7 +6,7 @@
 /*   By: lfargeas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 21:15:15 by lfargeas          #+#    #+#             */
-/*   Updated: 2015/12/11 22:52:37 by lfargeas         ###   ########.fr       */
+/*   Updated: 2015/12/12 00:41:43 by lfargeas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	check_collision(t_list *lst1, t_list *lst2, t_dim map)
 	if(model2->dim.x + model2->dim.w > map.w || model2->dim.y + model2->dim.h > map.h)
 		return(2);
 	tmp = lst1;
-	while (tmp->next)
+	while (tmp)
 	{
 		if( check_aabb( ((t_model*)tmp->content)->dim, ((t_model*)lst2->content)->dim ))
 			if (check_tetro_col(((t_model*)tmp->content), ((t_model*)tmp->content)))
