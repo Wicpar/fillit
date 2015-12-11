@@ -6,7 +6,7 @@
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/06 17:27:26 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/11 20:40:12 by fnieto           ###   ########.fr       */
+/*   Updated: 2015/12/11 23:51:58 by lfargeas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		main(int argc, char **argv)
 	ft_lstiter(buffer, &print);
 
 	ft_putendl("finished testing");
-	max = maxdim(buffer);
+	max = mindim(buffer);
 	ft_putnbr(max.w);
 	ft_putchar('\n');
 	ft_putnbr(max.h);
