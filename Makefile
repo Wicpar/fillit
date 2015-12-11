@@ -22,8 +22,11 @@ SRC=a.c dimnew.c error.c ft_lstpush.c initializer.c loader.c modelbufcpy.c model
 
 LIB=libft.a
 
+OBJ=$(SRC:.c=.o)
+
 $(NAME): fillit.h
-		$(CC) $(CFLAGS) -o $(NAME) $(SRC) $(LIB)
+		$(CC) $(CFLAGS) -c $(SRC)
+		$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB)
 
 all: $(NAME)
 

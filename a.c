@@ -6,7 +6,7 @@
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/06 17:27:26 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/10 23:43:08 by fnieto           ###   ########.fr       */
+/*   Updated: 2015/12/11 19:11:03 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static void	print(t_list *lst)
 
 	tmp = (t_model*)lst->content;
 	ft_putendl("testing");
-	ft_putnbr(tmp->dim->x);
+	ft_putnbr(tmp->dim.x);
 	ft_putendl("");
-	ft_putnbr(tmp->dim->y);
+	ft_putnbr(tmp->dim.y);
 	ft_putendl("");
-	ft_putnbr(tmp->dim->w);
+	ft_putnbr(tmp->dim.w);
 	ft_putendl("");
-	ft_putnbr(tmp->dim->h);
+	ft_putnbr(tmp->dim.h);
 	ft_putendl("");
 }
 

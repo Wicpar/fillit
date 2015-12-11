@@ -6,7 +6,7 @@
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 03:15:40 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/10 23:45:52 by fnieto           ###   ########.fr       */
+/*   Updated: 2015/12/11 19:01:56 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ t_model	*modelnew(char **map)
 		new->map = map;
 		new->dim = dimnew(1000, 1000, 1000, 1000);
 	}
-	return (new->dim ? new : 0);
+	return (new);
 }

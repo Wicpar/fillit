@@ -6,7 +6,7 @@
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 22:29:12 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/10 23:42:29 by fnieto           ###   ########.fr       */
+/*   Updated: 2015/12/11 19:10:40 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ t_dim maxdim(t_list *lst)
 	ft_putnbr(ret_val.h);
 	while (tmp && tmp->next)
 	{
-		ret_val.h += ((t_model*)tmp->content)->dim->h;
-		ret_val.w += ((t_model*)tmp->content)->dim->w;
+		ret_val.h += ((t_model*)tmp->content)->dim.h;
+		ret_val.w += ((t_model*)tmp->content)->dim.w;
 		tmp = tmp->next;
-		ft_putnbr(((t_model*)tmp->content)->dim->h);
+		ft_putnbr(((t_model*)tmp->content)->dim.h);
 		ft_putendl("");
 	}
 	return (ret_val);

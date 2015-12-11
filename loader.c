@@ -6,28 +6,13 @@
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 20:37:02 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/10 23:37:54 by fnieto           ###   ########.fr       */
+/*   Updated: 2015/12/11 20:08:17 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <fcntl.h>
 #include <unistd.h>
-static void	print(t_list *lst)
-{
-	t_model *tmp;
-
-	tmp = (t_model*)lst->content;
-	ft_putendl("testing");
-	ft_putnbr(tmp->dim->x);
-	ft_putendl("");
-	ft_putnbr(tmp->dim->y);
-	ft_putendl("");
-	ft_putnbr(tmp->dim->w);
-	ft_putendl("");
-	ft_putnbr(tmp->dim->h);
-	ft_putendl("");
-}
 
 t_list	*loadfile(char	*str)
 {
@@ -46,15 +31,14 @@ t_list	*loadfile(char	*str)
 	{
 		tmp = modelnew(ft_strsplit(buf, '\n'));
 		tmp = check_model(tmp);
-		ft_lstpush(&lst, ft_lstnew((void*)tmp, 1));
-		print(ft_lstnew((void*)tmp, 1));
+		ft_lstpush(&lst, ft_lstnew(tmp, sizeof(t_model)));
+		ft_memdel((void**)&tmp);
 		if (last != 20)
 			ft_strclr(buf);
 	}
 	if (ft_strlen(buf) != 20 || close(fd) || last || !lst)
 		puterr(1);
 	ft_memdel((void**)&buf);
-	print(lst);
 	return (lst);
 }
 
@@ -65,10 +49,7 @@ t_model	*check_model(t_model *model)
 	t_dim	pcs;
 
 	y = 0;
-	pcs.x = 0;
-	pcs.y = 0;
-	pcs.w = 0;
-	pcs.h = 0;
+	pcs = dimnew(0, 0, 0, 0);
 	while (model->map[y])
 	{
 		x = 0;
@@ -80,8 +61,8 @@ t_model	*check_model(t_model *model)
 	}
 	if (y != 4 || pcs.x != 4 || pcs.y == 4)
 		puterr(1);
-	model->dim->w = model->dim->w - model->dim->x;
-	model->dim->h = model->dim->h - model->dim->y;
+	model->dim.w = model->dim.w - model->dim.x;
+	model->dim.h = model->dim.h - model->dim.y;
 	model_trim(model);
 	return (model);
 }
@@ -105,7 +86,7 @@ void	check_pcs(t_dim *pcs, t_model *model, size_t x, size_t y)
 			pcs->w++;
 		else if (tmp == 3)
 			pcs->h++;
-		aabb_update(model->dim, x, y);
+		aabb_update(&model->dim, x, y);
 	}
 }
 
@@ -132,14 +113,14 @@ void	model_trim(t_model *model)
 	size_t tmp;
 
 	tmp = 0;
-	while (tmp < model->dim->y)
+	while (tmp < model->dim.y)
 		ft_memdel((void**)&model->map[tmp++]);
-	ft_memmove(&model->map[0], &model->map[model->dim->y], sizeof(char*)
-			* (5 - model->dim->y));
-	model->dim->y = 0;
+	ft_memmove(&model->map[0], &model->map[model->dim.y], sizeof(char*)
+			* (5 - model->dim.y));
+	model->dim.y = 0;
 	tmp = -1;
 	while ((model->map)[++tmp])
-		ft_memmove(&model->map[tmp][0], &model->map[tmp][model->dim->x],
-				sizeof(char) * (5 - model->dim->x));
-	model->dim->x = 0;
+		ft_memmove(&model->map[tmp][0], &model->map[tmp][model->dim.x],
+				sizeof(char) * (5 - model->dim.x));
+	model->dim.x = 0;
 }

@@ -26,11 +26,11 @@ typedef	struct		s_dim
 typedef	struct		s_model
 {
 	char	**map;
-	t_dim	*dim;
+	t_dim	dim;
 }					t_model;
 
 int		main(int argc, char **argv);
-t_dim	*dimnew(size_t x, size_t y, size_t w, size_t h);
+t_dim	dimnew(size_t x, size_t y, size_t w, size_t h);
 void	puterr(int colored);
 void	ft_lstpush(t_list **alst, t_list *new);
 t_dim return_dim_zero();
