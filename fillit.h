@@ -29,12 +29,19 @@ typedef	struct		s_model
 	t_dim	dim;
 }					t_model;
 
+typedef	struct		s_map
+{
+	t_list	*elems;
+	char	**map;
+	t_dim	*dim;
+}					t_map;
+
 int		main(int argc, char **argv);
 t_dim	dimnew(size_t x, size_t y, size_t w, size_t h);
 void	puterr(int colored);
 void	ft_lstpush(t_list **alst, t_list *new);
-t_dim return_dim_zero();
-t_dim maxdim(t_list *lst);
+t_dim	mindim(t_list *lst);
+t_map	getmap(t_list *models);
 t_list	*loadfile(char	*str);
 t_model	*check_model(t_model *model);
 void	check_pcs(t_dim *pcs, t_model *model, size_t x, size_t y);
