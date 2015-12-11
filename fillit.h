@@ -30,17 +30,12 @@ typedef	struct		s_model
 }					t_model;
 
 int		main(int argc, char **argv);
-t_list *cpy_lstmodel(t_list *src);
 void	puterr(int colored);
 void	ft_lstpush(t_list **alst, t_list *new);
 t_list	*loadfile(char	*str);
 t_model	*check_model(t_model *model);
-<<<<<<< HEAD
 t_model			*model_cpy(t_model *src);
-void	trim_tetri();
-=======
-t_model	*model_cpy(t_model *src);
 t_model	*modelnew(char **map);
->>>>>>> origin/master
+void	trim_tetri();
 
 #endif
