@@ -6,38 +6,42 @@
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 22:29:12 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/11 19:10:40 by fnieto           ###   ########.fr       */
+/*   Updated: 2015/12/11 22:46:31 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_dim return_dim_zero()
+t_dim	mindim(t_list *lst)
 {
-	t_dim ret_val;
+	size_t	i;
+	size_t	s;
 
-	ret_val.x = 0;
-	ret_val.y = 0;
-	ret_val.h = 0;
-	ret_val.w = 0;
-	return (ret_val);
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	s = 0;
+	i *= 4;
+	while (s * s < i)
+		s++;
+	return (dimnew(0, 0, s, s));
 }
 
-t_dim maxdim(t_list *lst)
+t_map	getmap(t_list *models)
 {
-	t_dim	ret_val;
-	t_list	*tmp;
+	t_map	map;
+	size_t	i;
 
-	tmp = lst;
-	ret_val = return_dim_zero();
-	ft_putnbr(ret_val.h);
-	while (tmp && tmp->next)
+	map.elems = models;
+	map.dim = (t_dim*)ft_memalloc(sizeof(t_dim));
+	*map.dim = mindim(models);
+	i = 0;
+	while (i < dim.w * dim.h)
 	{
-		ret_val.h += ((t_model*)tmp->content)->dim.h;
-		ret_val.w += ((t_model*)tmp->content)->dim.w;
-		tmp = tmp->next;
-		ft_putnbr(((t_model*)tmp->content)->dim.h);
-		ft_putendl("");
+		
 	}
-	return (ret_val);
+	return (map);
 }
