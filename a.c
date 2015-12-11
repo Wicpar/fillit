@@ -6,7 +6,7 @@
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/06 17:27:26 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/11 20:40:12 by fnieto           ###   ########.fr       */
+/*   Updated: 2015/12/12 00:38:08 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,11 @@ static void	print(t_list *lst)
 int		main(int argc, char **argv)
 {
 	t_list *buffer;
-	t_dim	max;
 
 	if (argc != 2 || argv == 0)
 		puterr(1);
 	buffer = loadfile(argv[1]);
 
 	ft_putendl("testing sizes");
-	
 	ft_lstiter(buffer, &print);
-
-	ft_putendl("finished testing");
-	max = maxdim(buffer);
-	ft_putnbr(max.w);
-	ft_putchar('\n');
-	ft_putnbr(max.h);
-	ft_putchar('\n');
-
 }

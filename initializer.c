@@ -6,7 +6,7 @@
 /*   By: fnieto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 22:29:12 by fnieto            #+#    #+#             */
-/*   Updated: 2015/12/11 22:46:31 by fnieto           ###   ########.fr       */
+/*   Updated: 2015/12/12 00:42:14 by fnieto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_dim	mindim(t_list *lst)
 	return (dimnew(0, 0, s, s));
 }
 
-t_map	getmap(t_list *models)
+void	make_map(t_list *models)
 {
 	t_map	map;
 	size_t	i;
@@ -39,7 +39,7 @@ t_map	getmap(t_list *models)
 	map.dim = (t_dim*)ft_memalloc(sizeof(t_dim));
 	*map.dim = mindim(models);
 	i = 0;
-	while (i < dim.w * dim.h)
+	while (i < map.dim->w * map.dim->h)
 	{
 		
 	}
